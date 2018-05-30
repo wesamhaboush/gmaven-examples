@@ -1,17 +1,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.codebreeze.gmaven</groupId>
-    <artifactId>gmaven-samples</artifactId>
+    <groupId>net.codebreeze.net.codebreeze.gmaven</groupId>
+    <artifactId>net.codebreeze.gmaven-samples</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>gmaven-samples</name>
+    <name>net.codebreeze.gmaven-samples</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.1.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!--this is not needed for running groovy script, this is needed for groovy actual tests for example-->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.15</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -30,9 +37,23 @@
                 </dependencies>
                 <executions>
                     <execution>
+                        <id>some-action</id>
                         <phase>generate-test-sources</phase>
                         <goals>
                             <goal>execute</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>some-action2</id>
+                        <goals>
+                            <goal>addSources</goal>
+                            <goal>addTestSources</goal>
+                            <!--<goal>generateStubs</goal>-->
+                            <!--<goal>compile</goal>-->
+                            <goal>generateTestStubs</goal>
+                            <goal>compileTests</goal>
+                            <goal>removeStubs</goal>
+                            <goal>removeTestStubs</goal>
                         </goals>
                     </execution>
                 </executions>
