@@ -48,6 +48,7 @@
                         <goals>
                             <goal>addSources</goal>
                             <goal>addTestSources</goal>
+                            <!--these can be enabled if we have groovy files in the main src-->
                             <!--<goal>generateStubs</goal>-->
                             <!--<goal>compile</goal>-->
                             <goal>generateTestStubs</goal>
